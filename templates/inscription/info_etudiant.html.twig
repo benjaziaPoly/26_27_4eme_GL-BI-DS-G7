@@ -1,0 +1,6 @@
+{% if erreur == "" %}
+ Id={{ id }}
+ Nom etudiant = {{ nom }}
+{% else %}
+    <p style="color:red">Erreur={{ erreur }}</p>
+{% endif %}

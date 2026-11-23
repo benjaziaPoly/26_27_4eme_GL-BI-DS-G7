@@ -1,0 +1,27 @@
+{% extends 'template_job.html.twig' %}
+{% block title %} 
+  {{ parent() }} - Liste des Job
+{% endblock %}
+{% block contenu %}
+  <h4>Liste des Offres d'emploi -Job-</h4>
+  <table class="table table-bordred">
+   <thead>
+    <tr>
+        <th>Type</th>
+        <th>compagnie</th>
+        <th>Descriptoin</th>
+        <th>Date expiration</th>
+    </tr>
+   </thead>
+   <tbody>
+      {% for job in jobs %}
+        <tr>
+        <th>{{ job.type }}</th>
+        <th>{{ job.company }}</th>
+        <th>{{ job.description }}</th>
+        <th>{{ job.expiresAt | date("d-m-Y")}}</th>
+    </tr>
+      {% endfor %}
+   </tbody>
+  </table>
+{% endblock %}

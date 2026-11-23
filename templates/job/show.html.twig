@@ -1,0 +1,34 @@
+{% extends 'template_job.html.twig' %}
+{% block title %} 
+  {{ parent() }} - Detail job
+{% endblock %}
+{% block contenu %}
+  <h4>Detail du job</h4>
+  <table class="table table-bordred">
+   <thead>
+    <tr>
+        <th>Type</th>
+        <th>compagnie</th>
+        <th>Descriptoin</th>
+        <th>Date expiration</th>
+    </tr>
+   </thead>
+   <tbody>
+      {% if job is not null %}
+        {% if  job.image is not null %}
+          <img src="{{ job.image.url  }}" width="150" height="80" />
+        {% else %}
+          Job sans image  
+        {% endif %}
+        <tr>
+        <th>{{ job.type }}</th>
+        <th>{{ job.company }}</th>
+        <th>{{ job.description }}</th>
+        <th>{{ job.expiresAt | date("d-m-Y")}}</th>
+        </tr>
+        {% else %}
+         Code Job Incorrect !
+         {% endif %}
+   </tbody>
+  </table>
+{% endblock %}
